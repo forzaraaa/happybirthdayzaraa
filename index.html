@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>For Zara ♡</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Poppins:wght@300;400;500;600&display=swap');
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#0c080c;color:#f9edf2;font-family:Poppins,sans-serif}
+body{overflow-x:hidden;background-image:radial-gradient(circle at 15% 10%,#8d3c5b42,transparent 28%),radial-gradient(circle at 85% 85%,#b55b7a2b,transparent 30%)}
+
+/* Smooth Page Transitions */
+.page{min-height:100vh;display:none;align-items:center;justify-content:center;padding:85px 20px 45px;opacity:0;transition:opacity 0.5s ease-in-out}
+.page.on{display:flex;opacity:1}
+
+.wrap{width:min(760px,100%);text-align:center;position:relative;z-index:2}
+.tiny{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#d9a7b9}
+
+h1,h2{font-family:"Cormorant Garamond",serif;font-weight:500}
+h1{font-size:clamp(62px,15vw,115px);line-height:.78;margin:25px 0}
+h1 span,h2 span{color:#eca9c0;text-shadow:0 0 15px rgba(236,169,192,0.3)}
+h2{font-size:clamp(42px,9vw,72px);line-height:.9;margin:15px 0 28px}
+.lead{max-width:590px;margin:0 auto 30px;color:#cdbdc5;line-height:1.9;font-size:14px}
+
+.btn{border:0;border-radius:999px;padding:14px 24px;background:#e6a8bf;color:#1b0d14;font:600 13px Poppins;cursor:pointer;transition:all .3s ease;box-shadow:0 4px 15px rgba(230,168,191,0.2)}
+.btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 12px 30px rgba(230,168,191,0.4)}
+.ghost{background:#ffffff0b;color:#f8eaf0;border:1px solid #ffffff20;box-shadow:none}
+.ghost:hover{background:#ffffff1f;border-color:#e6a8bf80}
+
+.buttons{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+/* Enhanced Cards with Glowing Decorative Borders */
+.card{background:linear-gradient(135deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));border:1px solid rgba(230, 168, 191, 0.25);border-radius:28px;padding:32px;text-align:left;backdrop-filter:blur(15px);box-shadow:0 25px 70px rgba(0,0,0,0.5), inset 0 0 15px rgba(230, 168, 191, 0.05)}
+.card p{font-size:14px;line-height:2;color:#dacdd3;margin:0 0 18px}
+.card p:last-child{margin:0}
+
+/* Nav Bar Decor */
+.nav{position:fixed;z-index:20;top:16px;left:50%;transform:translateX(-50%);display:flex;gap:4px;padding:7px;background:#171016dd;border:1px solid #ffffff17;border-radius:999px;backdrop-filter:blur(12px);box-shadow:0 8px 32px rgba(0,0,0,0.4)}
+.nav button{width:42px;height:35px;border:0;background:transparent;color:#ad9da6;border-radius:50%;cursor:pointer;transition:.2s}
+.nav button:hover{background:#ffffff15;color:#f3c4d3;transform:scale(1.1)}
+
+/* Gallery Styles & Photo Hover Glow Decor */
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.photo{aspect-ratio:1;border:1px solid rgba(255,255,255,0.12);border-radius:20px;background:linear-gradient(135deg,#35212c,#181016);display:flex;align-items:center;justify-content:center;color:#9f8b95;font-size:12px;position:relative;overflow:hidden;transition:all .35s ease}
+.photo:hover{transform:translateY(-5px);border-color:#e6a8bf;box-shadow:0 10px 25px rgba(230,168,191,0.25)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease}
+.photo:hover img{transform:scale(1.05)}
+.photo span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#9f8b95;font-size:12px}
+.photo:not(.empty) span{display:none}
+.photo.empty{background:linear-gradient(135deg,#35212c,#181016)}
+
+.reveal{display:none;margin-top:18px}.reveal.open{display:block;animation:up .45s ease}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* Decorative Floating Elements (Hearts & Sparkles) */
+.heart{position:fixed;bottom:-25px;color:#e9a7bf;pointer-events:none;z-index:1;animation:float 5s linear forwards;filter:drop-shadow(0 0 6px rgba(233,167,191,0.5))}
+@keyframes float{
+  0%{transform:translateY(0) translateX(0) rotate(0deg);opacity:0.9}
+  50%{opacity:0.6}
+  100%{transform:translateY(-110vh) translateX(80px) rotate(360deg);opacity:0}
+}
+
+@media(max-width:560px){.card{padding:24px 20px}.nav button{width:37px}.gallery{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<audio id="music" src="musik.mp3" loop preload="auto"></audio>
+
+<section id="home" class="page on"><div class="wrap">
+<div class="tiny">29 . 10 . 2007</div>
+<h1>hi,<br><span>Zara.</span></h1>
+<p class="lead">Aku bikin sesuatu kecil buat kamu, karena rasanya ulang tahun kamu deserves something a little more special.</p>
+<button class="btn" onclick="openPage('menu');startMusic()">buka pelan-pelan →</button>
+</div></section>
+
+<section id="menu" class="page"><div class="wrap">
+<div class="tiny">welcome to my little corner</div>
+<h2>mau buka <span>yang mana?</span></h2>
+<p class="lead">Jangan dibuka semuanya sekaligus ya. Pilih satu-satu. Aku sengaja bikin beberapa bagian kecil buat kamu.</p>
+<div class="buttons">
+<button class="btn" onclick="openPage('letter')">💌 surat kecil</button>
+<button class="btn ghost" onclick="openPage('screen')">📱 tentang kita</button>
+<button class="btn ghost" onclick="openPage('why')">🫶 kenapa kamu?</button>
+<button class="btn ghost" onclick="openPage('photos')">📷 sedikit tentang kamu</button>
+<button class="btn ghost" onclick="openPage('last')">🎁 terakhir</button>
+</div></div></section>
+
+<section id="letter" class="page"><div class="wrap">
+<div class="tiny">for you, Zara</div>
+<div class="card">
+<h2>happy birthday, <span>Zara.</span></h2>
+<p>Aku sebenarnya sempat bingung mau nulis apa. Soalnya kalau dipikir-pikir, kita belum pernah ketemu langsung. Kita belum pernah jalan bareng, belum pernah duduk berdua, bahkan belum pernah punya foto yang benar-benar diambil bareng.</p>
+<p>Lucu ya? Tapi somehow, kamu tetap bisa jadi salah satu bagian dari hari-hariku. Dari chat random, cerita yang kadang nggak penting-penting amat, sampai hal kecil yang mungkin kamu sendiri nggak sadar kalau itu bikin aku senang.</p>
+<p>Jadi di hari ulang tahun kamu ini, aku cuma mau bilang: <b>I'm really glad I found you.</b> Aku senang bisa kenal kamu, senang bisa dengar cerita kamu, dan senang punya seseorang yang bisa aku tunggu kabarnya.</p>
+<p>Aku nggak berharap kamu harus selalu happy. Kalau suatu hari kamu capek, sedih, atau ngerasa semuanya terlalu banyak, it's okay. Kamu nggak harus selalu kelihatan kuat. Just be you. That's already enough.</p>
+<p>Semoga umur baru ini membawa banyak hal baik buat kamu. Semoga hal-hal yang kamu mau pelan-pelan datang. Semoga kamu ketemu lebih banyak alasan buat senyum, dan semoga kamu selalu dikelilingi orang-orang yang genuinely care about you.</p>
+<p>And honestly, aku berharap aku masih jadi salah satu orang itu.</p>
+<p>Aku nggak mau bikin janji yang terlalu besar. I just want to keep knowing you, keep talking to you, and see where this little story takes us.</p>
+<p style="text-align:right;color:#e6a8bf">happy birthday, Zara. ♡</p>
+</div>
+<div class="buttons" style="margin-top:22px"><button class="btn ghost" onclick="openPage('menu')">← balik</button><button class="btn" onclick="openPage('screen')">next →</button></div>
+</div></section>
+
+<section id="screen" class="page"><div class="wrap">
+<div class="tiny">the weirdly beautiful part</div>
+<h2>kita bahkan belum <span>ketemu.</span></h2>
+<div class="card">
+<p>Ini mungkin bagian yang paling random. Kita cuma kenal lewat layar, tapi somehow layar itu jadi tempat aku mengenal kamu sedikit demi sedikit.</p>
+<p>Aku tahu mungkin ini belum bisa dibandingkan dengan orang yang sudah bisa ketemu setiap hari. But still, what we have is real to me. Percakapan kita real. Rasa senang ketika lihat notif dari kamu juga real.</p>
+<p>Dan mungkin suatu hari nanti, kita bakal ketemu untuk pertama kalinya. Bakal awkward? Probably. Bisa jadi malah ketawa sendiri karena selama ini cuma kenal lewat chat. Wkwk.</p>
+<p>But I think that's the part I'm looking forward to.</p>
+</div>
+<div class="buttons" style="margin-top:22px"><button class="btn" onclick="openPage('why')">aku mau cerita lagi →</button></div>
+</div></section>
+
+<section id="why" class="page"><div class="wrap">
+<div class="tiny">okay, one honest question</div>
+<h2>kenapa <span>kamu?</span></h2>
+<p class="lead">Pilih satu. Jawabannya beda-beda, tapi semuanya jujur.</p>
+<div class="buttons">
+<button class="btn ghost" onclick="show('a')">karena kamu bikin nyaman</button>
+<button class="btn ghost" onclick="show('b')">karena kamu beda</button>
+<button class="btn ghost" onclick="show('c')">karena ya... kamu</button>
+</div>
+<div id="a" class="reveal card"><p>Aku nggak tahu kapan tepatnya, tapi ngobrol sama kamu somehow terasa gampang. Nggak harus selalu ada topik penting. Sometimes just having you there is enough.</p></div>
+<div id="b" class="reveal card"><p>Bukan berarti kamu sempurna. Kamu pasti punya sisi ngeselin juga wkwk. Tapi justru semua hal kecil itu yang bikin kamu terasa seperti kamu. And I like that.</p></div>
+<div id="c" class="reveal card"><p>Ini jawaban paling jujur. Aku bisa bikin seribu alasan, tapi ujung-ujungnya ya karena kamu. Sesederhana itu.</p></div>
+<div class="buttons" style="margin-top:22px"><button class="btn" onclick="openPage('photos')">next →</button></div>
+</div></section>
+
+<section id="photos" class="page"><div class="wrap">
+<div class="tiny">a few things i like</div>
+<h2>little pieces of <span>Zara.</span></h2>
+<div class="gallery">
+<div class="photo"><img src="foto1.jpg" alt="Foto Zara 1" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 1</span></div>
+<div class="photo"><img src="foto2.jpg" alt="Foto Zara 2" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 2</span></div>
+<div class="photo"><img src="foto3.jpg" alt="Foto Zara 3" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 3</span></div>
+<div class="photo"><img src="foto4.jpg" alt="Foto Zara 4" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 4</span></div>
+<div class="photo"><img src="foto5.jpg" alt="Foto Zara 5" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 5</span></div>
+<div class="photo"><img src="foto6.jpg" alt="Foto Zara 6" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 6</span></div>
+<div class="photo"><img src="foto7.jpg" alt="Foto Zara 7" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 7</span></div>
+<div class="photo"><img src="foto8.jpg" alt="Foto Zara 8" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 8</span></div>
+<div class="photo"><img src="foto9.jpg" alt="Foto Zara 9" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 9</span></div>
+<div class="photo"><img src="foto10.jpg" alt="Foto Zara 10" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 10</span></div>
+<div class="photo"><img src="foto11.jpg" alt="Foto Zara 11" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 11</span></div>
+<div class="photo"><img src="foto12.jpg" alt="Foto Zara 12" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 12</span></div>
+<div class="photo"><img src="foto13.jpg" alt="Foto Zara 13" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 13</span></div>
+<div class="photo"><img src="foto14.jpg" alt="Foto Zara 14" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 14</span></div>
+<div class="photo"><img src="foto15.jpg" alt="Foto Zara 15" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 15</span></div>
+<div class="photo"><img src="foto16.jpg" alt="Foto Zara 16" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 16</span></div>
+<div class="photo"><img src="foto17.jpg" alt="Foto Zara 17" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 17</span></div>
+<div class="photo"><img src="foto18.jpg" alt="Foto Zara 18" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 18</span></div>
+<div class="photo"><img src="foto19.jpg" alt="Foto Zara 19" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 19</span></div>
+<div class="photo"><img src="foto20.jpg" alt="Foto Zara 20" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 20</span></div>
+<div class="photo"><img src="foto21.jpg" alt="Foto Zara 21" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 21</span></div>
+<div class="photo"><img src="foto22.jpg" alt="Foto Zara 22" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 22</span></div>
+<div class="photo"><img src="foto23.jpg" alt="Foto Zara 23" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 23</span></div>
+<div class="photo"><img src="foto24.jpg" alt="Foto Zara 24" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 24</span></div>
+<div class="photo"><img src="foto25.jpg" alt="Foto Zara 25" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 25</span></div>
+<div class="photo"><img src="foto26.jpg" alt="Foto Zara 26" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 26</span></div>
+<div class="photo"><img src="foto27.jpg" alt="Foto Zara 27" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 27</span></div>
+<div class="photo"><img src="foto28.jpg" alt="Foto Zara 28" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 28</span></div>
+<div class="photo"><img src="foto29.jpg" alt="Foto Zara 29" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 29</span></div>
+<div class="photo"><img src="foto30.jpg" alt="Foto Zara 30" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 30</span></div>
+<div class="photo"><img src="foto31.jpg" alt="Foto Zara 31" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 31</span></div>
+<div class="photo"><img src="foto32.jpg" alt="Foto Zara 32" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 32</span></div>
+<div class="photo"><img src="foto33.jpg" alt="Foto Zara 33" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 33</span></div>
+<div class="photo"><img src="foto34.jpg" alt="Foto Zara 34" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 34</span></div>
+<div class="photo"><img src="foto35.jpg" alt="Foto Zara 35" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 35</span></div>
+<div class="photo"><img src="foto36.jpg" alt="Foto Zara 36" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 36</span></div>
+<div class="photo"><img src="foto37.jpg" alt="Foto Zara 37" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 37</span></div>
+<div class="photo"><img src="foto38.jpg" alt="Foto Zara 38" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 38</span></div>
+<div class="photo"><img src="foto39.jpg" alt="Foto Zara 39" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 39</span></div>
+<div class="photo"><img src="foto40.jpg" alt="Foto Zara 40" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 40</span></div>
+<div class="photo"><img src="foto41.jpg" alt="Foto Zara 41" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 41</span></div>
+<div class="photo"><img src="foto42.jpg" alt="Foto Zara 42" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 42</span></div>
+<div class="photo"><img src="foto43.jpg" alt="Foto Zara 43" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 43</span></div>
+<div class="photo"><img src="foto44.jpg" alt="Foto Zara 44" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 44</span></div>
+<div class="photo"><img src="foto45.jpg" alt="Foto Zara 45" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 45</span></div>
+<div class="photo"><img src="foto46.jpg" alt="Foto Zara 46" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 46</span></div>
+<div class="photo"><img src="foto47.jpg" alt="Foto Zara 47" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 47</span></div>
+<div class="photo"><img src="foto48.jpg" alt="Foto Zara 48" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 48</span></div>
+<div class="photo"><img src="foto49.jpg" alt="Foto Zara 49" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 49</span></div>
+<div class="photo"><img src="foto50.jpg" alt="Foto Zara 50" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('empty');"><span>FOTO 50</span></div>
+</div>
+<p class="lead" style="margin-top:24px">50 foto ini aku simpan di sini, biar halaman kecil ini punya sedikit lebih banyak cerita tentang kamu. ♡</p>
+<div class="buttons"><button class="btn" onclick="openPage('last')">one last thing →</button></div>
+</div></section>
+
+<section id="last" class="page"><div class="wrap">
+<div class="tiny">please read this until the end</div>
+<h2>one last <span>thing, Zara.</span></h2>
+<div class="card">
+<p>Ulang tahun kali ini mungkin masih terasa sedikit aneh. Aku cuma bisa ngasih kamu ucapan lewat layar, bikin website kecil seperti ini, dan berharap kamu senyum waktu membacanya.</p>
+<p>Tapi someday, aku pengen birthday wish ini nggak lagi dikirim lewat layar.</p>
+<p>Aku pengen suatu hari bisa bilang langsung di depan kamu, tanpa chat, tanpa video call, tanpa jarak:</p>
+<p style="font-family:'Cormorant Garamond';font-size:32px;line-height:1.25;color:#efb1c6;text-align:center;text-shadow:0 0 20px rgba(239,177,198,0.3)">“Happy birthday, Zara.<br>Akhirnya kita ketemu.”</p>
+<p>Sampai hari itu datang, take care of yourself, okay? Keep smiling. Keep being you. And please remember that somewhere, there's someone who is really happy that you exist.</p>
+<p style="text-align:center;color:#e6a8bf;font-family:'Cormorant Garamond';font-size:26px">Happy birthday, Zara. ❤️</p>
+</div>
+<div class="buttons" style="margin-top:22px"><button class="btn" onclick="openPage('home')">↻ mulai lagi</button></div>
+</div></section>
+
+<div class="nav">
+<button onclick="openPage('home')">⌂</button><button onclick="openPage('menu')">♡</button><button onclick="openPage('letter')">✉</button><button onclick="openPage('photos')">⌁</button><button onclick="openPage('last')">✦</button>
+</div>
+
+<script>
+const ids=['home','menu','letter','screen','why','photos','last'];
+function openPage(id){
+  ids.forEach(x=>document.getElementById(x).classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  scrollTo(0,0)
+}
+function startMusic(){const a=document.getElementById('music');a.play().catch(()=>{})}
+function show(id){
+  document.querySelectorAll('.reveal').forEach(x=>x.classList.remove('open'));
+  document.getElementById(id).classList.add('open')
+}
+
+/* Floating Particles (Hearts & Sparkles) Generator */
+setInterval(()=>{
+  let h=document.createElement('div');
+  h.className='heart';
+  h.textContent=['♡','♥','✦','✨','🌸'][Math.floor(Math.random()*5)];
+  h.style.left=Math.random()*100+'vw';
+  h.style.fontSize=(12 + Math.random()*14) + 'px';
+  h.style.animationDuration=(4+Math.random()*4)+'s';
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),8000)
+}, 800);
+</script>
+</body>
+</html>
